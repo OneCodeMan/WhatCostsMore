@@ -14,8 +14,8 @@ function parse(html) {
     $('div.block-grid-item').each(function(index) {
         var itemNameRaw = $(this).find('div.card-meta-row-item').text().trim();
         var itemName = itemNameRaw.substring(0, itemNameRaw.indexOf('\n'));
-        var itemPrice = $(this).find('span.currency.text-smaller').text().trim();
-        var itemImage = '$' + $(this).find('img').prop('src');
+        var itemPrice = '$' + $(this).find('span.currency.text-smaller').text().trim();
+        var itemImage = $(this).find('img').prop('src');
         if (itemPrice) {
             data.push({ name: itemName, price: itemPrice, src: itemImage });
         }
