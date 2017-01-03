@@ -1,10 +1,15 @@
 #!/bin/bash
-# TODO: Just loop through current directory and execute command
-#       on any file that ends with "-scraper.js"
 
-scrapers=( saatchiart-scraper.js ottycb-scraper.js oopc-scraper.js dollhouse-scraper.js cardkingdom-scraper.js bestbuy-scraper.js arrohome-scraper.js )
-
-for i in "${scrapers[@]}"
+for f in *.js
 do
-    node $i
+    if [[ "$f" == *-scraper.js ]]
+    then
+        node $f
+    else
+        :
+    fi
 done
+
+echo "Created all JSON files"
+node append-data.js
+echo "Appended data"
