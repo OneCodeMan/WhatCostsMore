@@ -3,7 +3,8 @@
 var fs = require('fs');
 var datasets = ['arrohome-items.json', 'bestbuy-items.json', 'cardkingdom-items.json',
                 'dollhouse-items.json', 'oopc-items.json', 'ottycb-items.json',
-                'saatchiart-items.json'];
+                'saatchiart-items.json', 'steam-items.json', 'grs-items.json',
+                'schooloflife-items.json', 'syndromestore-items.json'];
 
 var allData = [];
 
