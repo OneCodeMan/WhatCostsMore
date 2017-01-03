@@ -14,7 +14,9 @@ function parse(html) {
         var itemPrices = $(this).find('span.stylePrice').text().trim();
         var itemPrice = itemPrices.substr(0, itemPrices.indexOf(' '));
         var itemImage = $(this).find('a.cardLink > img.cardSrc').attr('data-src');
-        data.push({ name: itemName, price: itemPrice, src: itemImage });
+        if (itemPrice) {
+            data.push({ name: itemName, price: itemPrice, src: itemImage });
+        }
     });
 
     var dataAsJSON = JSON.stringify(data);

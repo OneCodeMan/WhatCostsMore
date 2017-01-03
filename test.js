@@ -1,21 +1,33 @@
 var cheerio = require('cheerio');
-var request = require('request');
-var fs = require('fs');
+var rp = require('request-promise');
+var fsp = require('fs-promise');
 
-const url = "http://www.cardkingdom.com/mtg/alpha?filter%5Bipp%5D=20&filter%5Bsort%5D=price_desc";
+const url = "https://www.saatchiart.com/new-media/abstract/abstract/acrylic?price=1000-2000";
 
 var data = [];
 
-request(url, function(error, response, body) {
-    if (error) {
-        console.log("error: " + error);
-    }
+function parse(html) {
+    var $ = cheerio.load(html);
 
-    var $ = cheerio.load(body);
-
-    $('div.productItemWrapper').each(function(index) {
-        var itemImage = $(this).find('a.cardLink > img').prop('data-src');
-        console.log(itemImage);
+    $('li.art-item').each(function(index) {
+        var itemName = $(this).find('h4.list-art-title > a').text().trim();
+        var itemPrices = $(this).find('div.list-art-price > div > div').text().trim();
+        var itemPrice = itemPrices.substr(0, 7);
+        var itemImage = "http:" + $(this).find('img').attr('src');
+        if (itemPrice) {
+            data.push({ name: itemName, price: itemPrice, src: itemImage });
+        }
     });
 
-});
+    var dataAsJSON = JSON.stringify(data);
+    console.log(data.length);
+    return dataAsJSON;
+}
+
+var append = file => content => fsp.appendFile(file, content);
+
+rp(url)
+    .then(parse)
+    .then(append('test-items.json'))
+    .then(() => console.log("success"))
+    .catch(err => console.log(err));

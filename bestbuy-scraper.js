@@ -13,7 +13,9 @@ function parse(html) {
         var itemName = $(this).find('h4.prod-title > a').text().trim();
         var itemPrice = $(this).find('span.amount').text().trim();
         var itemImage = $(this).find('div.prod-image > a > img').attr('src');
-        data.push({ name: itemName, price: itemPrice, src: itemImage });
+        if (itemPrice) {
+            data.push({ name: itemName, price: itemPrice, src: itemImage });
+        }
     });
 
     var dataAsJSON = JSON.stringify(data);
