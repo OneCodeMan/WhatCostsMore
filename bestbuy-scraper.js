@@ -29,5 +29,5 @@ var append = file => content => fsp.appendFile(file, content);
 rp(url)
     .then(parse)
     .then(append('bestbuy-items.json'))
-    .then(() => console.log("success from " + scriptName))
+    .then(() => console.log('success from ' + scriptName))
     .catch(err => console.log(err));

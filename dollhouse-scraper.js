@@ -15,7 +15,7 @@ function parse(html) {
         var itemNameRaw = $(this).find('div.card-meta-row-item').text().trim();
         var itemName = itemNameRaw.substring(0, itemNameRaw.indexOf('\n'));
         var itemPrice = $(this).find('span.currency.text-smaller').text().trim();
-        var itemImage = $(this).find('img').prop('src');
+        var itemImage = '$' + $(this).find('img').prop('src');
         if (itemPrice) {
             data.push({ name: itemName, price: itemPrice, src: itemImage });
         }
@@ -30,5 +30,5 @@ var append = file => content => fsp.appendFile(file, content);
 rp(url)
     .then(parse)
     .then(append('dollhouse-items.json'))
-    .then(() => console.log("success from " + scriptName))
+    .then(() => console.log('success from ' + scriptName))
     .catch(err => console.log(err));
