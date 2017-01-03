@@ -1,6 +1,8 @@
 var cheerio = require('cheerio');
 var rp = require('request-promise');
 var fsp = require('fs-promise');
+var path = require('path');
+var scriptName = path.basename(__filename);
 
 const url = "http://www.bestbuy.ca/Search/SearchResults.aspx?type=product&filter=category%3AComputers+%26+Tablets%3Bcurrentoffers0enrchstring%3AOn+Sale&icmp=VIPSep1_Sub_LuggageMP_QL_SetsOnSale_1&page=1&pageSize=96";
 
@@ -27,5 +29,5 @@ var append = file => content => fsp.appendFile(file, content);
 rp(url)
     .then(parse)
     .then(append('bestbuy-items.json'))
-    .then(() => console.log("success"))
+    .then(() => console.log("success from " + scriptName))
     .catch(err => console.log(err));

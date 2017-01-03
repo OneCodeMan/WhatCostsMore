@@ -1,6 +1,8 @@
 var cheerio = require('cheerio');
 var rp = require('request-promise');
 var fsp = require('fs-promise');
+var path = require('path');
+var scriptName = path.basename(__filename);
 
 const url = "https://www.etsy.com/shop/mousemarket?source=aw&awc=6939_1483398873_e45ef69a2ff68800fc9a7edb3774ce04&utm_source=affiliate_window&utm_medium=affiliate&utm_campaign=ca_location_buyer&utm_content=78888";
 
@@ -28,5 +30,5 @@ var append = file => content => fsp.appendFile(file, content);
 rp(url)
     .then(parse)
     .then(append('dollhouse-items.json'))
-    .then(() => console.log("success"))
+    .then(() => console.log("success from " + scriptName))
     .catch(err => console.log(err));

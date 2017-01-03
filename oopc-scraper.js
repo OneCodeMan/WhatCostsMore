@@ -1,6 +1,8 @@
 var cheerio = require('cheerio');
 var rp = require('request-promise');
 var fsp = require('fs-promise');
+var path = require('path');
+var scriptName = path.basename(__filename);
 
 const url = "https://www.outofprintclothing.com/collections/mens-tees";
 
@@ -28,5 +30,5 @@ var append = file => content => fsp.appendFile(file, content);
 rp(url)
     .then(parse)
     .then(append('oopc-items.json'))
-    .then(() => console.log("success"))
+    .then(() => console.log("success from " + scriptName))
     .catch(err => console.log(err));

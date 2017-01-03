@@ -10,7 +10,6 @@ for(var i = 0; i < datasets.length; i++) {
     fs.readFile(datasets[i], 'utf8', onFileRead);
 }
 
-
 function onFileRead(err, data) {
     if (err) throw err;
     var currentPackage = JSON.parse(data); // parsed into js array
