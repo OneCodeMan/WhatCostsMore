@@ -1,2 +1,30 @@
-.container {
+/*
+TODO: Instead of altering the background of the columns, do it on the container instead
+*/
+
+html, body, .container-fluid {
+    height: 100%;
+    min-height: 100%;
+}
+
+.container-fluid {
+    display: table;
+    box-sizing: border-box;
+}
+
+.row {
+    display: table-row;
+}
+
+.product-div {
+    display: table-cell;
+    float: none;
+}
+
+.right-col {
+    background-color: pink;
+}
+
+.left-col {
+    background-color: red;
 }
