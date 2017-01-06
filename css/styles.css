@@ -1,15 +1,11 @@
-/*
-TODO: Instead of altering the background of the columns, do it on the container instead
-*/
-
 html, body, .container-fluid {
     height: 100%;
     min-height: 100%;
+    padding: 0; /* This makes it fill up the edges */
 }
 
 .container-fluid {
-    display: table;
-    box-sizing: border-box;
+    display: table; /* Fills height */
 }
 
 .row {
@@ -19,12 +15,13 @@ html, body, .container-fluid {
 .product-div {
     display: table-cell;
     float: none;
+    height: 100%;
 }
 
-.right-col {
+#right-col {
     background-color: pink;
 }
 
-.left-col {
+#left-col {
     background-color: red;
 }
