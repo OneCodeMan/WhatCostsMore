@@ -1,4 +1,5 @@
 var $leftcol = $("#left-col");
 var $rightcol = $("#right-col");
 
-console.log(gradients);
+$leftcol.css({"background-color" : gradients[0][0]});
+$rightcol.css({"background-color" : gradients[0][1]});
