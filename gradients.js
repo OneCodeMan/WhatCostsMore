@@ -1,0 +1,1 @@
+var gradients = ["blue"];
