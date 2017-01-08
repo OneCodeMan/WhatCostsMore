@@ -1,6 +1,12 @@
+/*
+TODO: Make proper AJAX call to JSON data
+TODO: Display: random item pic, item name, item price, on both sides
+TODO: Display buttons (higher, lower, same)
+TODO: Make those buttons work
+*/
 var $leftcol = $("#left-col");
 var $rightcol = $("#right-col");
-// var $bothCols = [$leftcol, $rightcol];
+var jsonUrl = "https://api.myjson.com/bins/1df8v3";
 
 function generateRandomNumber(length) {
     var index = Math.floor(Math.random() * (length - 1));
