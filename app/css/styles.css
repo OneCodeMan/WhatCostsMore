@@ -8,7 +8,8 @@ html, body, .container-fluid {
   display: table;
   /* Fills height */ }
   .container-fluid .row {
-    display: table-row; }
+    display: table-row;
+    width: 100%; }
     .container-fluid .row .product-div {
       display: table-cell;
       float: none;
