@@ -1,0 +1,30 @@
+$initial-bg-left: #B98EA7;
+$initial-bg-right: #F0D3F7;
+
+html, body, .container-fluid {
+    height: 100%;
+    min-height: 100%;
+    padding: 0; /* This makes it fill up the edges */
+}
+
+.container-fluid {
+    display: table; /* Fills height */
+
+    .row {
+        display: table-row;
+
+        .product-div {
+            display: table-cell;
+            float: none;
+            height: 100%;
+        }
+
+        #right-col {
+            background-color: $initial-bg-right;
+        }
+
+        #left-col {
+            background-color: $initial-bg-left;
+        }
+    }
+}

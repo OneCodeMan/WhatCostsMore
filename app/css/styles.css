@@ -1,0 +1,19 @@
+html, body, .container-fluid {
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  /* This makes it fill up the edges */ }
+
+.container-fluid {
+  display: table;
+  /* Fills height */ }
+  .container-fluid .row {
+    display: table-row; }
+    .container-fluid .row .product-div {
+      display: table-cell;
+      float: none;
+      height: 100%; }
+    .container-fluid .row #right-col {
+      background-color: #F0D3F7; }
+    .container-fluid .row #left-col {
+      background-color: #B98EA7; }
