@@ -1,6 +1,4 @@
 /*
-TODO: Remove $NaN
-TODO: Every price should be a float rounded to two decimal places
 TODO: Make those buttons work, (i.e. add the logic)
 TODO: Add score
 TODO: Add losing screen

@@ -1,4 +1,8 @@
-// TODO: Just loop through directory for files that end with ".json"
+/*
+TODO: Remove $NaN
+TODO: Every price should be a float rounded to two decimal places 
+TODO: Just loop through directory for files that end with ".json"
+*/
 
 var fs = require('fs');
 var datasets = ['arrohome-items.json', 'bestbuy-items.json', 'cardkingdom-items.json',
