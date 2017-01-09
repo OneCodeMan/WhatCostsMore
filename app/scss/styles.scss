@@ -1,16 +1,17 @@
 $initial-bg-left: #B98EA7;
 $initial-bg-right: #F0D3F7;
-$default-color: white;
+$default-color: #FFFBFA;
 
 html, body, .container-fluid {
     height: 100%;
     min-height: 100%;
-    padding: 0; /* This makes it fill up the edges */
+    padding: 0; // This makes it fill up the edges
     color: $default-color;
+    font-weight: bold;
 }
 
 .container-fluid {
-    display: table; /* Fills height */
+    display: table; // Fills height
 
     .row {
         display: table-row;
@@ -20,6 +21,19 @@ html, body, .container-fluid {
             display: table-cell;
             float: none;
             height: 100%;
+            min-width: 50vw;
+
+            .pic-div {
+                margin: 50px auto;
+                width: 300px;
+            }
+
+            .item-name-div, .item-price-div {
+                text-align: center;
+                font-size: 25px;
+            }
+
+
         }
 
         #right-col {

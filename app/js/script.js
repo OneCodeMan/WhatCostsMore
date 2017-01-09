@@ -1,6 +1,4 @@
 /*
-TODO: Fill width equally and fully initially...
-TODO: Center images
 TODO: Display buttons (higher, lower, same)
 TODO: Make those buttons work
 */
