@@ -1,10 +1,10 @@
 /*
+TODO: Add animations (fade in products, fade out)
 TODO: Make those buttons work, (i.e. add the logic)
 TODO: Add score
 TODO: Add losing screen
 TODO: Add some sort of milestone winning screen
-TODO: Add animations (fade in products, fade out)
-TODO: Add links to github, tumblr, and codepen.
+TODO: Add links to github, tumblr, codepen, and medium.
 TODO: Hide the prices
 TODO: Improve the UI/UX.
 */
@@ -21,7 +21,8 @@ var $more = $('#more');
 var $less = $('#less');
 var $same = $('#same');
 var options = ['more', 'less', 'same'];
-var jsonUrl = 'https://api.myjson.com/bins/1df8v3';
+//var jsonUrl = 'https://api.myjson.com/bins/1df8v3';
+var jsonUrl = 'https://api.myjson.com/bins/14fnxz';
 
 function generateRandomNumber(length) {
     var firstRandNum = Math.floor(Math.random() * (length - 1));
@@ -76,9 +77,9 @@ var update = function(input) {
     $leftPic.attr('src', productOne.src);
     $rightPic.attr('src', productTwo.src);
     $leftItemName.text(productOne.name);
-    $leftItemPrice.text(productOne.price);
+    $leftItemPrice.text('$' + productOne.price);
     $rightItemName.text(productTwo.name);
-    $rightItemPrice.text(productTwo.price);
+    $rightItemPrice.text('$' + productTwo.price);
 
     var gradientIndex = generateRandomNumber(gradients.length)[0];
 
