@@ -1,8 +1,7 @@
 /*
 TODO: Remove $NaN
-TODO: Change strings to have single quotes... it's just good style.
 TODO: Every price should be a float rounded to two decimal places
-TODO: Make those buttons work
+TODO: Make those buttons work, (i.e. add the logic)
 TODO: Add score
 TODO: Add losing screen
 TODO: Add some sort of milestone winning screen
@@ -11,20 +10,20 @@ TODO: Add links to github, tumblr, and codepen.
 TODO: Hide the prices
 TODO: Improve the UI/UX.
 */
-var $priceText = $(".price-text");
-var $leftCol = $("#left-col");
-var $rightCol = $("#right-col");
-var $leftPic = $("#left-pic");
-var $leftItemName = $("#left-item-name");
-var $leftItemPrice = $("#left-item-price");
-var $rightPic = $("#right-pic");
-var $rightItemName = $("#right-item-name");
-var $rightItemPrice = $("#right-item-price");
-var $more = $("#more");
-var $less = $("#less");
-var $same = $("#same");
-var options = ["more", "less", "same"];
-var jsonUrl = "https://api.myjson.com/bins/1df8v3";
+var $priceText = $('.price-text');
+var $leftCol = $('#left-col');
+var $rightCol = $('#right-col');
+var $leftPic = $('#left-pic');
+var $leftItemName = $('#left-item-name');
+var $leftItemPrice = $('#left-item-price');
+var $rightPic = $('#right-pic');
+var $rightItemName = $('#right-item-name');
+var $rightItemPrice = $('#right-item-price');
+var $more = $('#more');
+var $less = $('#less');
+var $same = $('#same');
+var options = ['more', 'less', 'same'];
+var jsonUrl = 'https://api.myjson.com/bins/1df8v3';
 
 function generateRandomNumber(length) {
     var firstRandNum = Math.floor(Math.random() * (length - 1));
@@ -59,13 +58,13 @@ $.ajax({
 
     },
     error: function(jqXHR, error) {
-        console.log("ERROR OCCURED: ", error);
+        console.log('ERROR OCCURED: ', error);
     },
 });
 
 var update = function(input) {
     if (input != null) {
-        console.log("button clicked");
+        console.log('button clicked');
     }
 
     var index = generateRandomNumber(jsonData.length);
@@ -76,8 +75,8 @@ var update = function(input) {
     console.log(productTwo.src, productTwo.name, productTwo.price);
 
     // the pics are higher because they need the most time to load
-    $leftPic.attr("src", productOne.src);
-    $rightPic.attr("src", productTwo.src);
+    $leftPic.attr('src', productOne.src);
+    $rightPic.attr('src', productTwo.src);
     $leftItemName.text(productOne.name);
     $leftItemPrice.text(productOne.price);
     $rightItemName.text(productTwo.name);
@@ -85,8 +84,8 @@ var update = function(input) {
 
     var gradientIndex = generateRandomNumber(gradients.length)[0];
 
-    $leftCol.css({"background-color" : gradients[gradientIndex][0]});
-    $rightCol.css({"background-color" : gradients[gradientIndex][1]});
+    $leftCol.css({'background-color' : gradients[gradientIndex][0]});
+    $rightCol.css({'background-color' : gradients[gradientIndex][1]});
 
 
 }
