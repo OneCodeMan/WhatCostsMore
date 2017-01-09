@@ -24,8 +24,11 @@ html, body, .container-fluid {
         font-size: 25px;
         margin: 0 auto;
         max-width: 47vw;
-        height: 90px;
-        overflow: hidden; }
+        overflow: auto; }
+      .container-fluid .row .product-div .item-name-div {
+        height: 110px; }
+      .container-fluid .row .product-div button {
+        margin: 10px; }
     .container-fluid .row #right-col {
       background-color: #F0D3F7; }
     .container-fluid .row #left-col {

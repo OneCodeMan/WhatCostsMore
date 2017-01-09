@@ -33,12 +33,19 @@ html, body, .container-fluid {
                 font-size: 25px;
                 margin: 0 auto;
                 max-width: 47vw;
-                height: 90px;
 
-                overflow: hidden;
+                overflow: auto;
                 //white-space: nowrap;
                 //text-overflow: ellipsis;
 
+            }
+
+            .item-name-div {
+                height: 110px;
+            }
+
+            button {
+                margin: 10px;
             }
 
         }
