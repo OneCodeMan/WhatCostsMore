@@ -76,10 +76,10 @@ var update = function(input) {
     // the pics are higher because they need the most time to load
     $leftPic.attr('src', productOne.src);
     $rightPic.attr('src', productTwo.src);
-    $leftItemName.text(productOne.name);
-    $leftItemPrice.text('$' + productOne.price);
-    $rightItemName.text(productTwo.name);
-    $rightItemPrice.text('$' + productTwo.price);
+    $leftItemName.html('<p>' + productOne.name + '</p>');
+    $leftItemPrice.html('<p>$' + productOne.price + '</p>');
+    $rightItemName.html('<p>' + productTwo.name + '</p>');
+    $rightItemPrice.html('<p>$' + productOne.price + '</p>');
 
     var gradientIndex = generateRandomNumber(gradients.length)[0];
 
