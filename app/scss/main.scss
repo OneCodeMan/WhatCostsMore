@@ -7,6 +7,7 @@ html, body, .container-fluid {
     padding: 0; // This makes it fill up the edges
     color: $default-color;
     font-weight: bold;
+    font-family: $font-stack;
 }
 
 .container-fluid {
@@ -30,8 +31,15 @@ html, body, .container-fluid {
             .item-name-div, .item-price-div {
                 text-align: center;
                 font-size: 25px;
-            }
+                margin: 0 auto;
+                max-width: 47vw;
+                height: 90px;
 
+                overflow: hidden;
+                //white-space: nowrap;
+                //text-overflow: ellipsis;
+
+            }
 
         }
 

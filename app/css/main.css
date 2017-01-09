@@ -3,7 +3,8 @@ html, body, .container-fluid {
   min-height: 100%;
   padding: 0;
   color: #FFFBFA;
-  font-weight: bold; }
+  font-weight: bold;
+  font-family: "Hammersmith One", "Arial", sans-serif; }
 
 .container-fluid {
   display: table; }
@@ -20,7 +21,11 @@ html, body, .container-fluid {
         width: 300px; }
       .container-fluid .row .product-div .item-name-div, .container-fluid .row .product-div .item-price-div {
         text-align: center;
-        font-size: 25px; }
+        font-size: 25px;
+        margin: 0 auto;
+        max-width: 47vw;
+        height: 90px;
+        overflow: hidden; }
     .container-fluid .row #right-col {
       background-color: #F0D3F7; }
     .container-fluid .row #left-col {
