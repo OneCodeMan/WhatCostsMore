@@ -1,10 +1,12 @@
 $initial-bg-left: #B98EA7;
 $initial-bg-right: #F0D3F7;
+$default-color: white;
 
 html, body, .container-fluid {
     height: 100%;
     min-height: 100%;
     padding: 0; /* This makes it fill up the edges */
+    color: $default-color;
 }
 
 .container-fluid {
@@ -27,5 +29,11 @@ html, body, .container-fluid {
         #left-col {
             background-color: $initial-bg-left;
         }
+
+
+        .price-text {
+            display: hidden;
+        }
+
     }
 }

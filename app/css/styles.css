@@ -2,7 +2,8 @@ html, body, .container-fluid {
   height: 100%;
   min-height: 100%;
   padding: 0;
-  /* This makes it fill up the edges */ }
+  /* This makes it fill up the edges */
+  color: white; }
 
 .container-fluid {
   display: table;
@@ -18,3 +19,5 @@ html, body, .container-fluid {
       background-color: #F0D3F7; }
     .container-fluid .row #left-col {
       background-color: #B98EA7; }
+    .container-fluid .row .price-text {
+      display: hidden; }
