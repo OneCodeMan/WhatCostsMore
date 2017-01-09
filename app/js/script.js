@@ -1,6 +1,15 @@
 /*
-TODO: Display buttons (higher, lower, same)
+TODO: Remove $NaN
+TODO: Change strings to have single quotes... it's just good style.
+TODO: Every price should be a float rounded to two decimal places
 TODO: Make those buttons work
+TODO: Add score
+TODO: Add losing screen
+TODO: Add some sort of milestone winning screen
+TODO: Add animations (fade in products, fade out)
+TODO: Add links to github, tumblr, and codepen.
+TODO: Hide the prices
+TODO: Improve the UI/UX.
 */
 var $priceText = $(".price-text");
 var $leftCol = $("#left-col");
@@ -11,6 +20,10 @@ var $leftItemPrice = $("#left-item-price");
 var $rightPic = $("#right-pic");
 var $rightItemName = $("#right-item-name");
 var $rightItemPrice = $("#right-item-price");
+var $more = $("#more");
+var $less = $("#less");
+var $same = $("#same");
+var options = ["more", "less", "same"];
 var jsonUrl = "https://api.myjson.com/bins/1df8v3";
 
 function generateRandomNumber(length) {
@@ -24,19 +37,25 @@ function generateRandomNumber(length) {
     return [firstRandNum, secondRandNum];
 }
 
-var gradientIndex = generateRandomNumber(gradients.length)[0];
-
-$leftCol.css({"background-color" : gradients[gradientIndex][0]});
-$rightCol.css({"background-color" : gradients[gradientIndex][1]});
-
 $.ajax({
     url: jsonUrl,
     type: 'GET',
     success: function(data) {
         jsonData = data;
-        update(null);
+        $more.on('click', function() {
+            update(0);
+        });
 
-        // logic
+        $less.on('click', function() {
+            update(1);
+        });
+
+        $same.on('click', function() {
+            update(2);
+        });
+
+
+        update(null);
 
     },
     error: function(jqXHR, error) {
@@ -46,25 +65,28 @@ $.ajax({
 
 var update = function(input) {
     if (input != null) {
-        // game
-    } else {
-        // initialization
-        var index = generateRandomNumber(jsonData.length);
-        var [indexOne, indexTwo] = index;
-        var [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
-
-        console.log(productOne.src, productOne.name, productOne.price);
-
-
-        $leftPic.attr("src", productOne.src);
-        $leftItemName.text(productOne.name);
-        $leftItemPrice.text(productOne.price);
-
-        $rightPic.attr("src", productTwo.src);
-        $rightItemName.text(productTwo.name);
-        $rightItemPrice.text(productTwo.price);
-
-
+        console.log("button clicked");
     }
+
+    var index = generateRandomNumber(jsonData.length);
+    var [indexOne, indexTwo] = index;
+    var [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
+
+    console.log(productOne.src, productOne.name, productOne.price);
+    console.log(productTwo.src, productTwo.name, productTwo.price);
+
+    // the pics are higher because they need the most time to load
+    $leftPic.attr("src", productOne.src);
+    $rightPic.attr("src", productTwo.src);
+    $leftItemName.text(productOne.name);
+    $leftItemPrice.text(productOne.price);
+    $rightItemName.text(productTwo.name);
+    $rightItemPrice.text(productTwo.price);
+
+    var gradientIndex = generateRandomNumber(gradients.length)[0];
+
+    $leftCol.css({"background-color" : gradients[gradientIndex][0]});
+    $rightCol.css({"background-color" : gradients[gradientIndex][1]});
+
 
 }
