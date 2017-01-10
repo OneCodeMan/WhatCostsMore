@@ -64,9 +64,19 @@ $.ajax({
     },
 });
 
+// $more.attr('id')
+
 var update = function(input) {
     if (input != null) {
-        console.log(input);
+        /*
+        if left product's price is equal to right product's price
+            the answer is "same"
+        else
+            the answer is either "more" or "less"
+
+        the challenge is having a rightAnswer, and also the user's answer.
+        */
+
     }
 
     var index = generateRandomNumber(jsonData.length);
