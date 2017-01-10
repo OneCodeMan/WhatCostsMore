@@ -66,7 +66,7 @@ $.ajax({
 
 var update = function(input) {
     if (input != null) {
-        console.log('button clicked');
+        console.log(input);
     }
 
     var index = generateRandomNumber(jsonData.length);
