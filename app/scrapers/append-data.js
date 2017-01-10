@@ -1,7 +1,3 @@
-/*
-TODO: Just loop through directory for files that end with ".json"
-*/
-
 var fs = require('fs');
 var datasets = ['arrohome-items.json', 'bestbuy-items.json', 'cardkingdom-items.json',
                 'dollhouse-items.json', 'oopc-items.json', 'ottycb-items.json',

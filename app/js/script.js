@@ -1,14 +1,16 @@
 /*
-TODO: Add animations (fade in products, fade out)
 TODO: Make those buttons work, (i.e. add the logic)
 TODO: Add score
 TODO: Add losing screen
 TODO: Add some sort of milestone winning screen
 TODO: Add links to github, tumblr, codepen, and medium.
+TODO: Add animations (fade in products, fade out)
 TODO: Hide the prices
 TODO: Improve the UI/UX.
 */
 var $priceText = $('.price-text');
+var $picDiv = $('.pic-div');
+var $itemNameDiv = $('.item-name-div');
 var $leftCol = $('#left-col');
 var $rightCol = $('#right-col');
 var $leftPic = $('#left-pic');
@@ -22,7 +24,7 @@ var $less = $('#less');
 var $same = $('#same');
 var options = ['more', 'less', 'same'];
 //var jsonUrl = 'https://api.myjson.com/bins/1df8v3';
-var jsonUrl = 'https://api.myjson.com/bins/14fnxz';
+var jsonUrl = 'https://api.myjson.com/bins/t9t4f';
 
 function generateRandomNumber(length) {
     var firstRandNum = Math.floor(Math.random() * (length - 1));
@@ -40,6 +42,7 @@ $.ajax({
     type: 'GET',
     success: function(data) {
         jsonData = data;
+
         $more.on('click', function() {
             update(0);
         });
@@ -74,12 +77,15 @@ var update = function(input) {
     console.log(productTwo.src, productTwo.name, productTwo.price);
 
     // the pics are higher because they need the most time to load
+
     $leftPic.attr('src', productOne.src);
     $rightPic.attr('src', productTwo.src);
+
     $leftItemName.html('<p>' + productOne.name + '</p>');
     $leftItemPrice.html('<p>$' + productOne.price + '</p>');
+
     $rightItemName.html('<p>' + productTwo.name + '</p>');
-    $rightItemPrice.html('<p>$' + productOne.price + '</p>');
+    $rightItemPrice.html('<p>$' + productTwo.price + '</p>');
 
     var gradientIndex = generateRandomNumber(gradients.length)[0];
 
