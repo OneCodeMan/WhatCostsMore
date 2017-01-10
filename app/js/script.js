@@ -7,6 +7,8 @@ TODO: Add links to github, tumblr, codepen, and medium.
 TODO: Add animations (fade in products, fade out)
 TODO: Hide the prices
 TODO: Improve the UI/UX.
+
+notes: toFixed() returns a string..
 */
 var $priceText = $('.price-text');
 var $picDiv = $('.pic-div');
@@ -25,6 +27,7 @@ var $same = $('#same');
 var options = ['more', 'less', 'same'];
 //var jsonUrl = 'https://api.myjson.com/bins/1df8v3';
 var jsonUrl = 'https://api.myjson.com/bins/t9t4f';
+var answer;
 
 function generateRandomNumber(length) {
     var firstRandNum = Math.floor(Math.random() * (length - 1));
@@ -67,7 +70,21 @@ $.ajax({
 // $more.attr('id')
 
 var update = function(input) {
+
     if (input != null) {
+        var priceLeft = parseFloat(productOne.price);
+        var priceRight = parseFloat(productTwo.price);
+
+        if (priceLeft === priceRight) {
+            answer = 'same';
+        } else {
+            answer = priceRight > priceLeft ? 'more' : 'less';
+        }
+
+        console.log('priceRight: ', priceRight);
+        console.log('priceLeft: ', priceLeft);
+        console.log(priceRight + ' is ' + answer + ' than ' + priceLeft);
+
         /*
         if left product's price is equal to right product's price
             the answer is "same"
@@ -79,12 +96,12 @@ var update = function(input) {
 
     }
 
-    var index = generateRandomNumber(jsonData.length);
-    var [indexOne, indexTwo] = index;
-    var [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
+    index = generateRandomNumber(jsonData.length);
+    [indexOne, indexTwo] = index;
+    [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
 
-    console.log(productOne.src, productOne.name, productOne.price);
-    console.log(productTwo.src, productTwo.name, productTwo.price);
+    //console.log(productOne.src, productOne.name, productOne.price);
+    //console.log(productTwo.src, productTwo.name, productTwo.price);
 
     // the pics are higher because they need the most time to load
 
