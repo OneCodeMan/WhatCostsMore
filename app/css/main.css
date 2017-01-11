@@ -11,8 +11,22 @@ html, body, .container-fluid {
   .container-fluid .row {
     display: table-row;
     width: 100%; }
+    .container-fluid .row #score-div {
+      position: absolute;
+      top: 10%;
+      left: 48.5%;
+      z-index: 2;
+      font-size: 60px;
+      -webkit-transform: scale(2, 2.5);
+      /* Safari and Chrome */
+      -moz-transform: scale(2, 2.5);
+      /* Firefox */
+      -ms-transform: scale(2, 2.5);
+      /* IE 9 */
+      transform: scale(2, 2.5); }
     .container-fluid .row .product-div {
       display: table-cell;
+      z-index: 1;
       float: none;
       height: 100%;
       min-width: 50vw; }

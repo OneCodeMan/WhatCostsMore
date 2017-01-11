@@ -1,11 +1,10 @@
 /*
-TODO: Make those buttons work, (i.e. add the logic)
-TODO: Add score
-TODO: Add losing screen
+TODO: Remove button group on loss, buttons to play again
 TODO: Add some sort of milestone winning screen
 TODO: Add links to github, tumblr, codepen, and medium.
 TODO: Add animations (fade in products, fade out)
 TODO: Hide the prices
+TODO: Add more gradients. 50 more.
 TODO: Improve the UI/UX.
 
 notes: toFixed() returns a string..
@@ -24,10 +23,11 @@ var $rightItemPrice = $('#right-item-price');
 var $more = $('#more');
 var $less = $('#less');
 var $same = $('#same');
+var $scoreText = $('#score-text');
+
+var score = 0;
 var options = ['more', 'less', 'same'];
-//var jsonUrl = 'https://api.myjson.com/bins/1df8v3';
 var jsonUrl = 'https://api.myjson.com/bins/t9t4f';
-var answer;
 
 function generateRandomNumber(length) {
     var firstRandNum = Math.floor(Math.random() * (length - 1));
@@ -67,44 +67,40 @@ $.ajax({
     },
 });
 
-// $more.attr('id')
+function computeAnswer(priceLeft, priceRight) {
+    var answer;
+    if (priceLeft === priceRight) {
+        answer = 'same';
+    } else {
+        answer = priceRight > priceLeft ? 'more' : 'less';
+    }
+
+    return answer;
+}
 
 var update = function(input) {
 
     if (input != null) {
         var priceLeft = parseFloat(productOne.price);
         var priceRight = parseFloat(productTwo.price);
+        var userAnswer = options[input];
+        var correctAnswer = computeAnswer(priceLeft, priceRight);
 
-        if (priceLeft === priceRight) {
-            answer = 'same';
+        if (userAnswer === correctAnswer) {
+            score++;
         } else {
-            answer = priceRight > priceLeft ? 'more' : 'less';
+            alert("you lost!");
         }
 
-        console.log('priceRight: ', priceRight);
-        console.log('priceLeft: ', priceLeft);
-        console.log(priceRight + ' is ' + answer + ' than ' + priceLeft);
-
-        /*
-        if left product's price is equal to right product's price
-            the answer is "same"
-        else
-            the answer is either "more" or "less"
-
-        the challenge is having a rightAnswer, and also the user's answer.
-        */
-
     }
+
+    $scoreText.text(score);
 
     index = generateRandomNumber(jsonData.length);
     [indexOne, indexTwo] = index;
     [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
 
-    //console.log(productOne.src, productOne.name, productOne.price);
-    //console.log(productTwo.src, productTwo.name, productTwo.price);
-
     // the pics are higher because they need the most time to load
-
     $leftPic.attr('src', productOne.src);
     $rightPic.attr('src', productTwo.src);
 
@@ -118,6 +114,5 @@ var update = function(input) {
 
     $leftCol.css({'background-color' : gradients[gradientIndex][0]});
     $rightCol.css({'background-color' : gradients[gradientIndex][1]});
-
 
 }
