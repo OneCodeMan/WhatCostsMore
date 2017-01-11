@@ -1,7 +1,5 @@
 /*
-TODO: Add animations (fade in products, fade out)
-TODO: Hide the prices
-TODO: Improve the UI/UX.
+
 
 notes: toFixed() returns a string..
 */
