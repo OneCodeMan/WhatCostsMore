@@ -39,13 +39,33 @@ html, body, .container-fluid {
         margin: 0 auto;
         max-width: 47vw;
         overflow: auto; }
+      .container-fluid .row .product-div .item-price-div {
+        display: flex;
+        width: 50%;
+        justify-content: center; }
       .container-fluid .row .product-div .item-name-div {
         height: 110px; }
+      .container-fluid .row .product-div .item-value {
+        width: 120px;
+        height: 50px; }
       .container-fluid .row .product-div button {
         margin: 10px; }
     .container-fluid .row #right-col {
       background-color: #F0D3F7; }
+      .container-fluid .row #right-col .cred-list {
+        list-style: none;
+        text-decoration: none; }
+        .container-fluid .row #right-col .cred-list li a {
+          font-size: 25px;
+          color: #FFFBFA; }
+          .container-fluid .row #right-col .cred-list li a:hover {
+            position: relative;
+            bottom: 5px;
+            font-size: 32px; }
     .container-fluid .row #left-col {
       background-color: #B98EA7; }
     .container-fluid .row .price-text {
       display: hidden; }
+
+.hidden {
+  display: none; }

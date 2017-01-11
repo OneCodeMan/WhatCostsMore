@@ -1,10 +1,8 @@
 /*
-TODO: Remove button group on loss, buttons to play again
-TODO: Add some sort of milestone winning screen
 TODO: Add links to github, tumblr, codepen, and medium.
+TODO: Add more gradients. 50 more.
 TODO: Add animations (fade in products, fade out)
 TODO: Hide the prices
-TODO: Add more gradients. 50 more.
 TODO: Improve the UI/UX.
 
 notes: toFixed() returns a string..
@@ -17,13 +15,22 @@ var $rightCol = $('#right-col');
 var $leftPic = $('#left-pic');
 var $leftItemName = $('#left-item-name');
 var $leftItemPrice = $('#left-item-price');
+var $leftPriceText = $('#left-price-text');
 var $rightPic = $('#right-pic');
 var $rightItemName = $('#right-item-name');
 var $rightItemPrice = $('#right-item-price');
+var $rightPriceText = $('#right-price-text');
+var $itemValue = $('.item-value');
+var $itemValueSpan = $('.item-value-span');
 var $more = $('#more');
 var $less = $('#less');
 var $same = $('#same');
 var $scoreText = $('#score-text');
+var $gameButtons = $('#game-buttons');
+var $endGameButtons = $('#end-game-buttons');
+var $playAgain = $('#play-again');
+var playing = true;
+
 
 var score = 0;
 var options = ['more', 'less', 'same'];
@@ -81,6 +88,7 @@ function computeAnswer(priceLeft, priceRight) {
 var update = function(input) {
 
     if (input != null) {
+
         var priceLeft = parseFloat(productOne.price);
         var priceRight = parseFloat(productTwo.price);
         var userAnswer = options[input];
@@ -89,30 +97,39 @@ var update = function(input) {
         if (userAnswer === correctAnswer) {
             score++;
         } else {
-            alert("you lost!");
+            playing = false;
+            $gameButtons.fadeOut(900);
+
+            setTimeout(function() {
+                $endGameButtons.removeClass('hidden');
+                $endGameButtons.fadeIn(2000);
+            }, 1000);
         }
 
     }
 
-    $scoreText.text(score);
+    if (playing) {
+        $scoreText.text(score);
 
-    index = generateRandomNumber(jsonData.length);
-    [indexOne, indexTwo] = index;
-    [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
+        index = generateRandomNumber(jsonData.length);
+        [indexOne, indexTwo] = index;
+        [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
 
-    // the pics are higher because they need the most time to load
-    $leftPic.attr('src', productOne.src);
-    $rightPic.attr('src', productTwo.src);
+        $leftPriceText.text(productOne.price);
+        $rightPriceText.text(productTwo.price);
+        $leftPic.attr('src', productOne.src);
+        $rightPic.attr('src', productTwo.src);
+        $leftItemName.html('<p>' + productOne.name + '</p>');
+        $rightItemName.html('<p>' + productTwo.name + '</p>');
 
-    $leftItemName.html('<p>' + productOne.name + '</p>');
-    $leftItemPrice.html('<p>$' + productOne.price + '</p>');
+        var gradientIndex = generateRandomNumber(gradients.length)[0];
 
-    $rightItemName.html('<p>' + productTwo.name + '</p>');
-    $rightItemPrice.html('<p>$' + productTwo.price + '</p>');
-
-    var gradientIndex = generateRandomNumber(gradients.length)[0];
-
-    $leftCol.css({'background-color' : gradients[gradientIndex][0]});
-    $rightCol.css({'background-color' : gradients[gradientIndex][1]});
+        $leftCol.css({'background-color' : gradients[gradientIndex][0]});
+        $rightCol.css({'background-color' : gradients[gradientIndex][1]});
+    }
 
 }
+
+$playAgain.on('click', function() {
+    window.location.reload(true);
+});

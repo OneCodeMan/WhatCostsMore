@@ -54,8 +54,19 @@ html, body, .container-fluid {
 
             }
 
+            .item-price-div {
+                display: flex;
+                width: 50%;
+                justify-content: center;
+            }
+
             .item-name-div {
                 height: 110px;
+            }
+
+            .item-value {
+                width: 120px;
+                height: 50px;
             }
 
             button {
@@ -66,6 +77,24 @@ html, body, .container-fluid {
 
         #right-col {
             background-color: $initial-bg-right;
+
+            .cred-list {
+                list-style: none;
+                text-decoration: none;
+
+                li {
+                    a {
+                        font-size: 25px;
+                        color: $default-color;
+
+                        &:hover {
+                            position: relative;
+                            bottom: 5px;
+                            font-size: 32px;
+                        }
+                    }
+                }
+            }
         }
 
         #left-col {
@@ -78,4 +107,8 @@ html, body, .container-fluid {
         }
 
     }
+}
+
+.hidden {
+    display: none;
 }
