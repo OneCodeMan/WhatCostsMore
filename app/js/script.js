@@ -45,6 +45,18 @@ function generateRandomNumber(length) {
     return [firstRandNum, secondRandNum];
 }
 
+function computeAnswer(priceLeft, priceRight) {
+    var answer;
+    if (priceLeft === priceRight) {
+        answer = 'same';
+    } else {
+        answer = priceRight > priceLeft ? 'more' : 'less';
+    }
+
+    return answer;
+}
+
+
 $.ajax({
     url: jsonUrl,
     type: 'GET',
@@ -71,17 +83,6 @@ $.ajax({
         console.log('ERROR OCCURED: ', error);
     },
 });
-
-function computeAnswer(priceLeft, priceRight) {
-    var answer;
-    if (priceLeft === priceRight) {
-        answer = 'same';
-    } else {
-        answer = priceRight > priceLeft ? 'more' : 'less';
-    }
-
-    return answer;
-}
 
 var update = function(input) {
 
@@ -133,6 +134,7 @@ var update = function(input) {
 
             $leftCol.css({'background-color' : gradients[gradientIndex][0]});
             $rightCol.css({'background-color' : gradients[gradientIndex][1]});
+            console.log(gradientIndex);
         }, 1500);
     }
 
