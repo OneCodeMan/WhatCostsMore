@@ -28,6 +28,18 @@ html, body, .container-fluid {
             -moz-transform:scale(2,2.5); /* Firefox */
             -ms-transform:scale(2,2.5); /* IE 9 */
             transform: scale(2, 2.5);
+
+            @media screen and (max-width: $medium-screen) {
+                font-size: 40px;
+
+            }
+
+            @media screen and (max-width: $small-screen) {
+                font-size: 15px;
+                left: 325px;
+
+            }
+
         }
 
         .product-div {

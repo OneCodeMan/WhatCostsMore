@@ -24,6 +24,13 @@ html, body, .container-fluid {
       -ms-transform: scale(2, 2.5);
       /* IE 9 */
       transform: scale(2, 2.5); }
+      @media screen and (max-width: 800px) {
+        .container-fluid .row #score-div {
+          font-size: 40px; } }
+      @media screen and (max-width: 700px) {
+        .container-fluid .row #score-div {
+          font-size: 15px;
+          left: 325px; } }
     .container-fluid .row .product-div {
       display: table-cell;
       z-index: 1;
