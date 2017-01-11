@@ -87,6 +87,10 @@ var update = function(input) {
 
     if (input != null) {
 
+        $leftPriceText.text(productOne.price);
+        $rightPriceText.text(productTwo.price);
+        $itemValue.removeClass('hidePrice');
+
         var priceLeft = parseFloat(productOne.price);
         var priceRight = parseFloat(productTwo.price);
         var userAnswer = options[input];
@@ -107,23 +111,29 @@ var update = function(input) {
     }
 
     if (playing) {
+
+        setTimeout(function() {
+            $itemValue.addClass('hidePrice');
+        }, 900);
+
         $scoreText.text(score);
 
-        index = generateRandomNumber(jsonData.length);
-        [indexOne, indexTwo] = index;
-        [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
+        setTimeout(function() {
 
-        $leftPriceText.text(productOne.price);
-        $rightPriceText.text(productTwo.price);
-        $leftPic.attr('src', productOne.src);
-        $rightPic.attr('src', productTwo.src);
-        $leftItemName.html('<p>' + productOne.name + '</p>');
-        $rightItemName.html('<p>' + productTwo.name + '</p>');
+            index = generateRandomNumber(jsonData.length);
+            [indexOne, indexTwo] = index;
+            [productOne, productTwo] = [jsonData[indexOne], jsonData[indexTwo]];
 
-        var gradientIndex = generateRandomNumber(gradients.length)[0];
+            $leftPic.attr('src', productOne.src);
+            $rightPic.attr('src', productTwo.src);
+            $leftItemName.html('<p>' + productOne.name + '</p>');
+            $rightItemName.html('<p>' + productTwo.name + '</p>');
 
-        $leftCol.css({'background-color' : gradients[gradientIndex][0]});
-        $rightCol.css({'background-color' : gradients[gradientIndex][1]});
+            var gradientIndex = generateRandomNumber(gradients.length)[0];
+
+            $leftCol.css({'background-color' : gradients[gradientIndex][0]});
+            $rightCol.css({'background-color' : gradients[gradientIndex][1]});
+        }, 1500);
     }
 
 }

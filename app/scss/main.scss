@@ -101,14 +101,13 @@ html, body, .container-fluid {
             background-color: $initial-bg-left;
         }
 
-
-        .price-text {
-            display: hidden;
-        }
-
     }
 }
 
 .hidden {
     display: none;
+}
+
+.hidePrice {
+    background-color: $default-color;
 }

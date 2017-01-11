@@ -64,8 +64,9 @@ html, body, .container-fluid {
             font-size: 32px; }
     .container-fluid .row #left-col {
       background-color: #B98EA7; }
-    .container-fluid .row .price-text {
-      display: hidden; }
 
 .hidden {
   display: none; }
+
+.hidePrice {
+  background-color: #FFFBFA; }
