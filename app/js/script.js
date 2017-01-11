@@ -1,11 +1,10 @@
 /*
-TODO: scrape more data
-http://www.musiciansfriend.com/hot-deals#pageName=deal-center&N=100802&Nao=0&recsPerPage=60&v=g&profileCountryCode=CA&profileCurrencyCode=CAD
+TODO: Learn how to scrape through pages
+https://www.axemusic.com/guitars.html?limit=30
 https://www.scientificsonline.com/shop/science-kits?Page=1&Sort=featured
 http://www.thebestcakeshop.com/celebrationssweetsixteengirly21stteencupcakecakes.html
 http://www.thebestcakeshop.com/page/page/1895172.htm
 http://www.thebestcakeshop.com/batmanspidermanboythemecarspongebobthomastrain.html
-TODO: Learn how to scrape through pages
 
 notes: toFixed() returns a string..
 */
