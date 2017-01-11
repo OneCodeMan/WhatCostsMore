@@ -1,5 +1,4 @@
 /*
-TODO: Add links to github, tumblr, codepen, and medium.
 TODO: Add animations (fade in products, fade out)
 TODO: Hide the prices
 TODO: Improve the UI/UX.
