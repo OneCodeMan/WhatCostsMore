@@ -10,6 +10,7 @@ do
     fi
 done
 
+node cleanJSON.js
 echo "Created all JSON files"
 node append-data.js
 echo "Appended data"
