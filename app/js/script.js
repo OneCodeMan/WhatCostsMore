@@ -29,7 +29,7 @@ var playing = true;
 
 var score = 0;
 var options = ['more', 'less', 'same'];
-var jsonUrl = 'https://api.myjson.com/bins/t9t4f';
+var jsonUrl = 'https://api.myjson.com/bins/j0n2r';
 
 function generateRandomNumber(length) {
     var firstRandNum = Math.floor(Math.random() * (length - 1));

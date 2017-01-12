@@ -4,7 +4,7 @@ var fsp = require('fs-promise');
 var path = require('path');
 var scriptName = path.basename(__filename);
 
-var highestPgNumber = 10;
+var highestPgNumber = 4;
 const url = 'https://www.axemusic.com/guitars.html?limit=30&p=';
 
 var data = [];
