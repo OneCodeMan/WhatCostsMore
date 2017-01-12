@@ -1,5 +1,5 @@
 /*
-TODO: Learn how to scrape through pages
+TODO: Learn how to scrape loop through pages
 https://www.axemusic.com/guitars.html?limit=30
 https://www.scientificsonline.com/shop/science-kits?Page=1&Sort=featured
 http://www.thebestcakeshop.com/celebrationssweetsixteengirly21stteencupcakecakes.html
