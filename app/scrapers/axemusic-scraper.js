@@ -4,8 +4,7 @@ var fsp = require('fs-promise');
 var path = require('path');
 var scriptName = path.basename(__filename);
 
-var highestPgNumber = 13;
-var jsonData = '';
+var highestPgNumber = 10;
 const url = 'https://www.axemusic.com/guitars.html?limit=30&p=';
 
 var data = [];
@@ -28,12 +27,12 @@ function parse(html) {
 
 var append = file => content => fsp.appendFile(file, content);
 
-for(var i = 0; i < highestPgNumber; i++) {
+for(var i = 1; i < highestPgNumber; i++) {
 
     rp(url + i)
         .then(parse)
         .then(append('axemusic-items.json'))
-        .then(() => console.log('axemusic success'))
+        .then(() => console.log('success from loop ' + i + ', ' + scriptName))
         .catch(err => console.log('Error: ', err));
 
 }

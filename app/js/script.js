@@ -1,9 +1,4 @@
 /*
-TODO: Learn how to scrape loop through pages
-https://www.scientificsonline.com/shop/science-kits?Page=1&Sort=featured
-http://www.thebestcakeshop.com/celebrationssweetsixteengirly21stteencupcakecakes.html
-http://www.thebestcakeshop.com/page/page/1895172.htm
-http://www.thebestcakeshop.com/batmanspidermanboythemecarspongebobthomastrain.html
 
 notes: toFixed() returns a string..
 */
