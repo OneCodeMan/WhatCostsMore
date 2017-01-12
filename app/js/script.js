@@ -1,7 +1,3 @@
-/*
-
-notes: toFixed() returns a string..
-*/
 var $priceText = $('.price-text');
 var $picDiv = $('.pic-div');
 var $itemNameDiv = $('.item-name-div');
