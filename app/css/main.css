@@ -11,6 +11,23 @@ html, body, .container-fluid {
   .container-fluid .row {
     display: table-row;
     width: 100%; }
+    .container-fluid .row #query {
+      display: none; }
+      @media screen and (max-width: 480px) {
+        .container-fluid .row #query {
+          display: block;
+          color: #FFFBFA;
+          position: absolute;
+          left: 70px;
+          z-index: 5;
+          margin: 50px auto;
+          border: solid;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          background: #110B11;
+          width: 300px;
+          height: 500px; } }
     .container-fluid .row #score-div {
       position: absolute;
       top: 10%;

@@ -17,6 +17,26 @@ html, body, .container-fluid {
         display: table-row;
         width: 100%;
 
+        #query {
+            display: none;
+
+            @media screen and (max-width: $smallest-screen) {
+                display: block;
+                color: $default-color;
+                position: absolute;
+                left: 70px;
+                z-index: 5;
+                margin: 50px auto;
+                border: solid;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                background: #110B11;
+                width: 300px;
+                height: 500px;
+            }
+        }
+
         #score-div {
             position: absolute;
             top: 10%;
